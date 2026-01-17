@@ -17,7 +17,8 @@
     <!-- Pin versions explicitly for a stable sample. We can adjust as needed as we implement. -->
     <azure.identity.version>1.16.2</azure.identity.version>
     <azure.resourcemanager.version>2.51.0</azure.resourcemanager.version>
-    <azure.resourcemanager.cosmos.version>2.1.0</azure.resourcemanager.cosmos.version>
+    <!-- Keep ResourceManager sub-modules aligned to avoid dependency conflicts. -->
+    <azure.resourcemanager.cosmos.version>${azure.resourcemanager.version}</azure.resourcemanager.cosmos.version>
 
     <jackson.version>2.17.2</jackson.version>
     <slf4j.version>2.0.16</slf4j.version>
