@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- Quiet down Azure SDK + Reactor Netty DEBUG noise during harness runs -->
+  <logger name="com.azure" level="WARN"/>
+  <logger name="reactor.netty" level="WARN"/>
+  <logger name="io.netty" level="WARN"/>
+
+  <!-- Keep our library logs visible -->
+  <logger name="com.azurecosmosdb.cosmoskeyprovider" level="INFO"/>
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>

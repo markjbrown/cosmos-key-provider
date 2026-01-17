@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "CosmosKeyProvider Harness (Demo, no Azure calls)",
+      "request": "launch",
+      "mainClass": "com.azurecosmosdb.cosmoskeyprovider.harness.Main",
+      "cwd": "${workspaceFolder}",
+      "args": "--config samples/CosmosKeyProvider.Harness/config.demo.json",
+      "console": "integratedTerminal"
+    },
+    {
+      "type": "java",
+      "name": "CosmosKeyProvider Harness (ARM + ExecuteDbsGet)",
+      "request": "launch",
+      "mainClass": "com.azurecosmosdb.cosmoskeyprovider.harness.Main",
+      "cwd": "${workspaceFolder}",
+      "args": "--config samples/CosmosKeyProvider.Harness/config.json",
+      "console": "integratedTerminal"
+    }
+  ]
+}

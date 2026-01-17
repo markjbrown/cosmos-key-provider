@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- Default runtime logging: keep sample readable (no Azure/Netty debug flood). -->
+  <logger name="com.azure" level="WARN"/>
+  <logger name="reactor" level="WARN"/>
+  <logger name="io.netty" level="WARN"/>
+
+  <logger name="com.azurecosmosdb.cosmoskeyprovider" level="INFO"/>
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>

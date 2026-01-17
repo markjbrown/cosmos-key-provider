@@ -11,6 +11,7 @@ import com.azurecosmosdb.cosmoskeyprovider.CosmosRestExecutor;
 import com.azurecosmosdb.cosmoskeyprovider.CosmosRestExecutorOptions;
 import com.azurecosmosdb.cosmoskeyprovider.CosmosRestRequestSigner;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.net.URI;
@@ -214,17 +215,31 @@ public final class Main {
 
   @JsonIgnoreProperties(ignoreUnknown = true)
   private static final class HarnessConfig {
+    @JsonAlias({"Cosmos", "cosmos"})
     public CosmosSection cosmos;
   }
 
   @JsonIgnoreProperties(ignoreUnknown = true)
   private static final class CosmosSection {
+    @JsonAlias({"Endpoint", "endpoint"})
     public String endpoint;
+
+    @JsonAlias({"TenantId", "tenantId"})
     public String tenantId;
+
+    @JsonAlias({"SubscriptionId", "subscriptionId"})
     public String subscriptionId;
+
+    @JsonAlias({"ResourceGroup", "resourceGroup"})
     public String resourceGroup;
+
+    @JsonAlias({"AccountName", "accountName"})
     public String accountName;
+
+    @JsonAlias({"UseDemoKeySource", "useDemoKeySource"})
     public boolean useDemoKeySource;
+
+    @JsonAlias({"ExecuteDbsGet", "executeDbsGet"})
     public boolean executeDbsGet;
 
     public boolean hasArmSettings() {

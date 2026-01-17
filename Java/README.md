@@ -20,6 +20,8 @@ Copy the template and edit your local config:
 - `samples/CosmosKeyProvider.Harness/config.example.json` (checked in)
 - `samples/CosmosKeyProvider.Harness/config.json` (your local copy; gitignored)
 
+Note: keep `config.json` local-only (it can include subscription/tenant/account details). Use the checked-in template (or `config.demo.json`) for shareable examples.
+
 ```json
 {
   "Cosmos": {
@@ -96,3 +98,45 @@ This minimizes both:
 - If ARM key retrieval fails due to tenant mismatch, set `TenantId` to the tenant that owns the subscription.
   - Local dev via Azure CLI often needs `az login --tenant <tenantId>`.
 - If you only want to validate caching/signing logic without Azure access, set `UseDemoKeySource=true`.
+
+## Debug in VS Code
+
+This repo includes a ready-to-run VS Code debug configuration for the harness.
+
+### Prereqs
+
+- VS Code extension: **Extension Pack for Java** (or equivalent Java debugging support)
+- Java 21+
+
+### Steps
+
+1) Open the Java folder as your workspace:
+
+- Open folder: `cosmos-key-provider/Java`
+
+Alternatively, open the optional workspace file (mainly for convenience settings). Debug configs still come from `.vscode/launch.json`:
+
+- Open workspace: `cosmos-key-provider/Java/cosmos-key-provider-java.code-workspace`
+
+2) Pick a launch configuration:
+
+- **CosmosKeyProvider Harness (Demo, no Azure calls)**
+  - Uses `samples/CosmosKeyProvider.Harness/config.demo.json`
+  - Always uses the in-process demo key source; does not call Azure.
+- **CosmosKeyProvider Harness (ARM + ExecuteDbsGet)**
+  - Uses `samples/CosmosKeyProvider.Harness/config.json`
+  - Calls ARM `listKeys`, then (optionally) executes `GET /dbs` against the Cosmos data plane.
+
+3) Start debugging:
+
+- Run and Debug → select one of the above configs → Start Debugging
+
+### Azure auth notes (ARM mode)
+
+- The harness uses `DefaultAzureCredential`. For local dev it commonly authenticates via Azure CLI.
+- Ensure you are logged in (and to the right tenant if needed): `az login --tenant <tenantId>`
+- The identity needs RBAC permission: `Microsoft.DocumentDB/databaseAccounts/listKeys/action`
+
+### Logging
+
+- Runtime logging is intentionally kept quiet (Azure/Netty set to WARN) via `src/main/resources/logback.xml`.
