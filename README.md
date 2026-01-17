@@ -35,7 +35,9 @@ code cosmos-key-provider-java.code-workspace
 
 ### Debug
 
-- C#: open the harness project in `Csharp/samples/CosmosKeyProvider.Harness` and use `Run` → `Start Debugging` (VS Code will prompt to create a `launch.json` if needed).
+- C#: open [cosmos-key-provider-csharp.code-workspace](cosmos-key-provider-csharp.code-workspace) and use the checked-in debug profiles in [Csharp/.vscode/launch.json](Csharp/.vscode/launch.json).
+  - Harness: select **C# Harness (Debug)** and press `F5`.
+  - Tests: start **C# Tests (Run + wait for attach)** (it will print a PID), then start **C# Tests (Attach to testhost)** and select the matching `dotnet`/`testhost` process.
 - Java: open [Java/src/main/java/com/azurecosmosdb/cosmoskeyprovider/harness/Main.java](Java/src/main/java/com/azurecosmosdb/cosmoskeyprovider/harness/Main.java) and use the inline `Run`/`Debug` CodeLens above `main` (provided by the Java extensions).
 
 ## How it works
