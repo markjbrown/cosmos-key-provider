@@ -1,0 +1,11 @@
+# --- Java build output ---
+target/
+
+# --- Java IDE metadata ---
+.classpath
+.project
+.settings/
+
+# --- Java harness local config (do not commit secrets) ---
+samples/CosmosKeyProvider.Harness/config.json
+samples/CosmosKeyProvider.Harness/*.local.json

@@ -1,0 +1,11 @@
+{
+  "Cosmos": {
+    "Endpoint": "https://<account>.documents.azure.com:443/",
+    "TenantId": "",
+    "SubscriptionId": "",
+    "ResourceGroup": "",
+    "AccountName": "",
+    "UseDemoKeySource": false,
+    "ExecuteDbsGet": false
+  }
+}

@@ -1,4 +1,4 @@
-# Cosmos DB master-key cache provider (C#)
+# Cosmos DB Master-Key Cache Provider (C#)
 
 This folder contains a small library + tests + console harness that implement a master-key caching/refresh pattern for **Cosmos DB NoSQL REST (data plane)** callers.
 

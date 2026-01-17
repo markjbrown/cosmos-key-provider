@@ -1,0 +1,36 @@
+{
+  "folders": [
+    {
+      "path": "Java"
+    }
+  ],
+  "settings": {
+    // Keep common Java build artifacts out of explorer/search results.
+    "files.exclude": {
+      "**/target": true,
+      "**/build": true,
+      "**/.gradle": true
+    },
+    "search.exclude": {
+      "**/target": true,
+      "**/build": true,
+      "**/.gradle": true
+    },
+
+    // Java language server (JDT) settings that improve out-of-the-box behavior.
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.compile.nullAnalysis.mode": "automatic",
+
+    // Prefer VS Code's built-in formatter for basic Java formatting.
+    "[java]": {
+      "editor.defaultFormatter": "redhat.java"
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "vscjava.vscode-java-pack",
+      "vscjava.vscode-maven",
+      "redhat.java"
+    ]
+  }
+}
