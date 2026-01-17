@@ -1,0 +1,27 @@
+{
+  "folders": [
+    {
+      "path": "Csharp"
+    }
+  ],
+  "settings": {
+    // Helps C# tooling know which solution to load/debug by default.
+    "dotnet.defaultSolution": "CosmosKeyProvider.sln",
+
+    // Keep common build artifacts out of search results.
+    "files.exclude": {
+      "**/bin": true,
+      "**/obj": true
+    },
+    "search.exclude": {
+      "**/bin": true,
+      "**/obj": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-dotnettools.csharp",
+      "ms-dotnettools.csdevkit"
+    ]
+  }
+}
