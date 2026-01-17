@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C# Harness (Debug)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-harness",
+      "program": "${workspaceFolder}/samples/CosmosKeyProvider.Harness/bin/Debug/net9.0/CosmosKeyProvider.Harness.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/samples/CosmosKeyProvider.Harness",
+      "console": "integratedTerminal",
+      "stopAtEntry": false,
+      "env": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "C# Tests (Run + wait for attach)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-sln",
+      "program": "dotnet",
+      "args": [
+        "test",
+        "${workspaceFolder}/CosmosKeyProvider.sln",
+        "-c",
+        "Debug",
+        "--no-build"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "stopAtEntry": false,
+      "env": {
+        "VSTEST_HOST_DEBUG": "1"
+      }
+    },
+    {
+      "name": "C# Tests (Attach to testhost)",
+      "type": "coreclr",
+      "request": "attach",
+      "processId": "${command:pickProcess}"
+    }
+  ]
+}
